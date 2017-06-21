@@ -3,11 +3,9 @@ package utils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
-import pages.login.GuidePage;
-import steps.login.GuidePageSteps;
+import pages.GuidePage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,6 +21,7 @@ public class DriverFactory {
 
     @BeforeClass
     public static void initialiseAppiumAndroidDriver() throws MalformedURLException {
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
