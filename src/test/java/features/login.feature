@@ -6,5 +6,6 @@ Feature: Login
     Then I close the Guide page
 
 
-#    Scenario: Verify user is logged in
-#      Given I enter username as "mjenner" and password as "Auth3nt1c"
+    Scenario: Verify user is logged in
+      Given I enter username as "mjenner" and password as "Auth3nt1c"
+#      And I select project location "https://chai.aconex.com"

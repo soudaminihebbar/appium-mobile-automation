@@ -11,17 +11,24 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class LoginPage {
 
-    protected static AndroidDriver driver;
+//    protected static AndroidDriver driver;
 
     @FindBy(css = "#fm-logon-username-field")
     private static WebElement loginName;
 
-    public LoginPage() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new HomePage());
+    @FindBy(css = "#fm-logon-password-field")
+    private static WebElement password;
+
+    public LoginPage(AndroidDriver androidDriver) {
+
+        PageFactory.initElements(androidDriver, new HomePage());
     }
 
-    public static void enterCredentials(String username, String password) {
+    public static void enterCredentials(String username, String userPassword) {
         loginName.click();
         loginName.sendKeys(username);
+        password.click();
+        password.sendKeys(userPassword);
+
     }
 }
