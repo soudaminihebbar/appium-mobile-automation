@@ -3,5 +3,8 @@ Feature: Login
 
   Scenario: Verify Guide page is closed
     Given I launched the app
-    When I close the Guide page
-#    Then
+    Then I close the Guide page
+
+
+#    Scenario: Verify user is logged in
+#      Given I enter username as "mjenner" and password as "Auth3nt1c"

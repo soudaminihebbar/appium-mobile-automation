@@ -20,7 +20,7 @@ public class DriverFactory {
     public static AndroidDriver driver;
 
     @BeforeClass
-    public static void initialiseAppiumAndroidDriver() throws MalformedURLException {
+    public  AndroidDriver initialiseAppiumAndroidDriver() throws MalformedURLException {
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -30,13 +30,14 @@ public class DriverFactory {
         capabilities.setCapability("plarformVersion", "6.0.1");
         capabilities.setCapability("deviceName", "Nexus 5");
         capabilities.setCapability("appPackage", "com.aconex.field.mobile.ota");
-        capabilities.setCapability("appActivity", "com.aconex.field.mobile.ota.FieldActivity");
+        capabilities.setCapability("appActivity", "com.aconex.field.mobile.MainActivity");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        PageFactory.initElements(new AppiumFieldDecorator(driver), new GuidePage());
+        PageFactory.initElements(new AppiumFieldDecorator(driver), new GuidePage(driver));
 
+      return  driver;
     }
 
     public static void changeDriverContextToWeb(){
