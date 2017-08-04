@@ -9,3 +9,4 @@ Feature: Login
     Scenario: Verify user is logged in
       Given I enter username as "mjenner" and password as "Auth3nt1c"
 #      And I select project location "https://chai.aconex.com"
+      Then I tap on Login

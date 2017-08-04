@@ -1,17 +1,18 @@
 package pages;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.junit.Assert;
+
 
 /**
  * Created by shebbar on 14/06/17.
  */
 public class LoginPage {
 
-//    protected static AndroidDriver driver;
+    protected static AndroidDriver androidDriver;
 
     @FindBy(css = "#fm-logon-username-field")
     private static WebElement loginName;
@@ -19,16 +20,44 @@ public class LoginPage {
     @FindBy(css = "#fm-logon-password-field")
     private static WebElement password;
 
+    @FindBy(css = ".uiField-field input[disabled='disabled']")
+    private static WebElement selectProjectLocation;
+
+    @FindBy(css =".uiPanel-body ul li")
+    private static WebElement otherInstace;
+
+    @FindBy(css = ".primary")
+    private static WebElement submit;
+
+    @FindBy(css = "li.fm-home-view-tab")
+    private static WebElement homeTab;
+
     public LoginPage(AndroidDriver androidDriver) {
 
-        PageFactory.initElements(androidDriver, new HomePage());
+        PageFactory.initElements(LoginPage.androidDriver, new HomePage());
     }
 
-    public static void enterCredentials(String username, String userPassword) {
+    public void enterCredentials(String username, String userPassword) {
         loginName.click();
         loginName.sendKeys(username);
         password.click();
         password.sendKeys(userPassword);
+    }
 
+    public void enterProjectLocation(String instance) {
+        selectProjectLocation.click();
+        androidDriver.findElementByLinkText("Other").click();
+    }
+
+    public void login() {
+        submit.click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Assert.assertTrue(homeTab.isDisplayed());
     }
 }

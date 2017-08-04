@@ -16,23 +16,18 @@ import java.net.MalformedURLException;
 public class GuidePageSteps {
 
     AndroidDriver androidDriver;
+
     @Given("^I launched the app$")
     public void iLaunchedTheApp() throws Throwable {
-        DriverFactory df = new DriverFactory();
-        androidDriver = df.initialiseAppiumAndroidDriver();
+        DriverFactory driverFactory = new DriverFactory();
+        androidDriver = driverFactory.initialiseAppiumAndroidDriver();
     }
 
     @When("^I close the Guide page$")
     public void iCloseTheGuidePage() throws MalformedURLException {
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        GuidePage guidePage = new GuidePage(androidDriver);
 
-        GuidePage gp = new GuidePage(androidDriver);
-
-        gp.closeGuide();
+        guidePage.closeGuide();
     }
 }
