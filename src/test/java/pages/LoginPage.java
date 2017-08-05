@@ -34,7 +34,7 @@ public class LoginPage {
 
     public LoginPage(AndroidDriver androidDriver) {
 
-        PageFactory.initElements(LoginPage.androidDriver, new HomePage());
+        PageFactory.initElements(androidDriver, new HomePage());
     }
 
     public void enterCredentials(String username, String userPassword) {

@@ -13,25 +13,25 @@ import pages.LoginPage;
  */
 public class LoginPageSteps {
     AndroidDriver androidDriver;
-//    IOSDriver iosDriver;
 
+    LoginPage onLoginScreen;
 
+    public LoginPageSteps() {
+        onLoginScreen = new LoginPage(androidDriver);
+    }
 
     @Given("^I enter username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
     public void iEnterUsernameAsAndPasswordAs(String username, String password) throws Throwable {
-        LoginPage loginPage = new LoginPage(androidDriver);
-        loginPage.enterCredentials(username, password);
+        onLoginScreen.enterCredentials(username, password);
     }
 
     @And("^I select project location \"([^\"]*)\"$")
     public void iSelectProjectLocation(String instance) throws Throwable {
-        LoginPage loginPage = new LoginPage(androidDriver);
-        loginPage.enterProjectLocation(instance);
+        onLoginScreen.enterProjectLocation(instance);
     }
 
     @Then("^I tap on Login$")
     public void iTapOnLogin() throws Throwable {
-        LoginPage loginPage = new LoginPage(androidDriver);
-        loginPage.login();
+        onLoginScreen.login();
     }
 }
