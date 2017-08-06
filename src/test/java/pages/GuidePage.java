@@ -1,8 +1,6 @@
 package pages;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,7 +21,7 @@ public class GuidePage {
     @FindBy(css = "#fm-logon-username-field")
     private static WebElement loginName;
 
-    public GuidePage(AndroidDriver androidDriver) {
+    public GuidePage(AndroidDriver androidDriver) throws MalformedURLException {
         PageFactory.initElements(androidDriver, new LoginPage(androidDriver));
     }
 

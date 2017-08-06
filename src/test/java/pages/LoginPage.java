@@ -5,7 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 
 /**
  * Created by shebbar on 14/06/17.
@@ -13,6 +17,7 @@ import org.junit.Assert;
 public class LoginPage {
 
     protected static AndroidDriver androidDriver;
+//    private WebDriverWait wait = new WebDriverWait(androidDriver,200);
 
     @FindBy(css = "#fm-logon-username-field")
     private static WebElement loginName;
@@ -32,8 +37,7 @@ public class LoginPage {
     @FindBy(css = "li.fm-home-view-tab")
     private static WebElement homeTab;
 
-    public LoginPage(AndroidDriver androidDriver) {
-
+    public LoginPage(AndroidDriver androidDriver) throws MalformedURLException {
         PageFactory.initElements(androidDriver, new HomePage());
     }
 
@@ -57,7 +61,19 @@ public class LoginPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        try {
+//            new BasePage().waitForElementToBeVisible(homeTab);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+
+//        waitForElementToBeVisible(homeTab);
 
         Assert.assertTrue(homeTab.isDisplayed());
     }
+
+//    public void waitForElementToBeVisible(WebElement element) {
+//        wait.until(ExpectedConditions.visibilityOf(element));
+//
+//    }
 }

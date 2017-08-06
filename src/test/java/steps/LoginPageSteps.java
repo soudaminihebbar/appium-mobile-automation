@@ -8,6 +8,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import pages.LoginPage;
 
+import java.net.MalformedURLException;
+
 /**
  * Created by shebbar on 21/06/17.
  */
@@ -16,7 +18,7 @@ public class LoginPageSteps {
 
     LoginPage onLoginScreen;
 
-    public LoginPageSteps() {
+    public LoginPageSteps() throws MalformedURLException {
         onLoginScreen = new LoginPage(androidDriver);
     }
 
