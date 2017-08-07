@@ -22,7 +22,7 @@ public class GuidePage {
     private static WebElement loginName;
 
     public GuidePage(AndroidDriver androidDriver) throws MalformedURLException {
-        PageFactory.initElements(androidDriver, new LoginPage(androidDriver));
+        PageFactory.initElements(androidDriver, this);
     }
 
 

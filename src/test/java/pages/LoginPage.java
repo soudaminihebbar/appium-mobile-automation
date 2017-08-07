@@ -17,7 +17,6 @@ import java.net.MalformedURLException;
 public class LoginPage {
 
     protected static AndroidDriver androidDriver;
-    private WebDriverWait wait;
 
     @FindBy(css = "#fm-logon-username-field")
     private static WebElement loginName;
@@ -38,8 +37,7 @@ public class LoginPage {
     private static WebElement homeTab;
 
     public LoginPage(AndroidDriver androidDriver) throws MalformedURLException {
-        PageFactory.initElements(androidDriver, new HomePage());
-        wait = new WebDriverWait(androidDriver,200);
+        PageFactory.initElements(androidDriver, this);
     }
 
     public void enterCredentials(String username, String userPassword) {
@@ -56,13 +54,7 @@ public class LoginPage {
 
     public void login() {
         submit.click();
-        waitForElementToBeVisible(homeTab);
-
-        Assert.assertTrue(homeTab.isDisplayed());
     }
 
-    public void waitForElementToBeVisible(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
 
-    }
 }

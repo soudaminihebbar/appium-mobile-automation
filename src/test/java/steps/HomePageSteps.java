@@ -9,13 +9,14 @@ import pages.HomePage;
  */
 public class HomePageSteps {
 
-//    HomePage onHomePage;
-//
-//    public HomePageSteps() {
-//        onHomePage = new HomePage();
-//    }
-//    @Then("^User details displayed in the home screen$")
-//    public void userDetailsDisplayedInTheHomeScreen() throws Throwable {
-//        onHomePage.verifyUserDetails();
-//    }
+    HomePage onHomePage;
+
+    public HomePageSteps() {
+        onHomePage = new HomePage();
+    }
+
+    @Then("^Home page should be displayed$")
+    public void homePageShouldBeDisplayed() throws Throwable {
+        onHomePage.verifyHomePageIsDisplayed();
+    }
 }
