@@ -10,3 +10,4 @@ Feature: Login
       Given I enter username as "mjenner" and password as "Auth3nt1c"
 #      And I select project location "https://chai.aconex.com"
       When I tap on Login
+      Then User details displayed in the home screen

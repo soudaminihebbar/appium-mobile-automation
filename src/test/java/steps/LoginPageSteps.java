@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import pages.LoginPage;
+import utils.DriverFactory;
 
 import java.net.MalformedURLException;
 
@@ -14,12 +15,10 @@ import java.net.MalformedURLException;
  * Created by shebbar on 21/06/17.
  */
 public class LoginPageSteps {
-    AndroidDriver androidDriver;
-
     LoginPage onLoginScreen;
 
     public LoginPageSteps() throws MalformedURLException {
-        onLoginScreen = new LoginPage(androidDriver);
+        onLoginScreen = new LoginPage(DriverFactory.androidDriver);
     }
 
     @Given("^I enter username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
