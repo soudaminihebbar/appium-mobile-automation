@@ -11,3 +11,5 @@ Feature: Login
 #      And I select project location "https://chai.aconex.com"
       When I tap on Login
       Then Home page should be displayed
+      And I tap on Settings tab
+      And I logout
