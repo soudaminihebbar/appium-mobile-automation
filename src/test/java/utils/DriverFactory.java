@@ -24,7 +24,6 @@ public class DriverFactory {
 //    public static IOSDriver iosDriver;
 //    For IOS ****
 
-    @BeforeClass
     public  AndroidDriver initialiseAppiumAndroidDriver() throws MalformedURLException {
 
 
