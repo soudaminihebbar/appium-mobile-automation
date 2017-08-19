@@ -33,8 +33,8 @@ public class DriverFactory {
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("plarformVersion", "6.0.1");
         capabilities.setCapability("deviceName", "Nexus 5");
-        capabilities.setCapability("appPackage", "com.aconex.field.mobile.ota");
-        capabilities.setCapability("appActivity", "com.aconex.field.mobile.MainActivity");
+        capabilities.setCapability("appPackage", "field.mobile.ota");
+        capabilities.setCapability("appActivity", "field.mobile.MainActivity");
 
         androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
